@@ -13,14 +13,25 @@ function App() {
 
   // ✅ Fetch data using fetch()
   useEffect(() => {
+    console.log("📢 Fetching audio.json...");  // Log that fetch() is starting
+  
     fetch("/audio.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Fetched Playlist Data:", data.audio);  // ✅ Log the actual array
-    setPlaylist(data.audio || []);  // ✅ Now setting only the array
-  })
-
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);  // Log HTTP errors
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("✅ RAW Data from JSON:", data);  // Log the full response
+        console.log("✅ Extracted Audio Array:", data.audio); // Log only the audio array
+        setPlaylist(data.audio || []);
+      })
+      .catch((error) => {
+        console.error("❌ Error fetching playlist:", error);
+      });
   }, []);
+  
 
   // ✅ Track Controls
   const handleTrackClick = (track) => {
