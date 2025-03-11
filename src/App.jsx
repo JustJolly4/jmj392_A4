@@ -56,10 +56,8 @@ function App() {
   };
 
   // ✅ Filter only songs for Playlist & Songs section
-  const songs = playlist.filter(item => item.artist);
-  const podcasts = playlist.filter(item => 
-    item.episodeTitle || item.podcast
-  );
+  const songs = Array.isArray(playlist) ? playlist.filter(item => item.artist) : [];
+  const podcasts = Array.isArray(playlist) ? playlist.filter(item => item.episodeTitle || item.podcast) : [];
   
 
   return (
