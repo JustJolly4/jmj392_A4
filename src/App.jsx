@@ -13,7 +13,7 @@ function App() {
 
   // ✅ Fetch data using fetch()
   useEffect(() => {
-    fetch("http://localhost:3001/audio")
+    fetch("/audio.json")
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched Playlist Data:", data);
