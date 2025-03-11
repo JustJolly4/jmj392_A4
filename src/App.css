@@ -1,0 +1,132 @@
+/* General Styling */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #2d3748;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Playlist Container */
+.playlist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 🎶 Main Title */
+.main-title {
+  font-size: 2.5rem;
+  color: #8282f2; /* Purple */
+}
+
+/* Content Wrapper (Flexbox for Layout) */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .playlist-section,
+  .songs-section,
+  .podcasts-section {
+    width: 100%;
+  }
+}
+
+/* Playlist, Songs, Podcasts Sections */
+.playlist-section,
+.songs-section,
+.podcasts-section {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 🎵 Cards for Songs and Podcasts */
+.song-card,
+.podcast-card {
+  background: #e0d6ff; /* Soft Purple */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+
+.song-card:hover,
+.podcast-card:hover {
+  transform: scale(1.05);
+}
+
+/* 🎼 Playlist Items */
+.playlist-item {
+  background: #b4a7f2; /* Medium Purple */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.playlist-item.playing {
+  background: #8282f2; /* Darker Purple */
+  color: white;
+}
+
+.playlist-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 🎧 Playing Status */
+.playing-status {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #8282f2; /* Match theme */
+}
+
+/* 🎛 Button Styles */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.controls button {
+  background: #8282f2; /* Purple Theme */
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.controls button:hover {
+  background: #6c6ce5; /* Darker Purple */
+  transform: scale(1.05);
+}
+
+/* Accessibility: Improve focus outline */
+.controls button:focus {
+  outline: 3px solid #b4a7f2; /* Medium Purple Focus Ring */
+}
