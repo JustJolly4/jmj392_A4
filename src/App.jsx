@@ -14,14 +14,12 @@ function App() {
   // ✅ Fetch data using fetch()
   useEffect(() => {
     fetch("/audio.json")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Fetched Playlist Data:", data);
-        setPlaylist(data);
-      })
-      .catch((error) => {
-        console.error("❌ Error fetching playlist:", error);
-      });
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Fetched Playlist Data:", data.audio);  // ✅ Log the actual array
+    setPlaylist(data.audio || []);  // ✅ Now setting only the array
+  })
+
   }, []);
 
   // ✅ Track Controls
